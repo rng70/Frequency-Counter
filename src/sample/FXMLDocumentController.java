@@ -42,7 +42,7 @@ public class FXMLDocumentController implements Initializable {
    @FXML  private TextArea filename; 
    ObjectProperty<MyDataType> criticalPerson = new SimpleObjectProperty<>();
    
-    public class MyDataType {
+    public static class MyDataType {
     private final int intValue ;
     private final String stringValue ;
     MyDataType(String stringValue,int intValue) {
@@ -87,10 +87,7 @@ public class FXMLDocumentController implements Initializable {
             if(!line.trim().equals("")){
                String[] words = line.split("[\\W]+");
                for(String word : words){
-                   if(word == null || word.trim().equals("")){
-                       continue;
-                   }
-                   else{
+                   if (word != null && !word.trim().equals("")) {
                        String processed = word.toLowerCase();
                        processed = processed.replace(","," ");
 
@@ -108,16 +105,16 @@ public class FXMLDocumentController implements Initializable {
         }       
           list.clear();
           wordfound.entrySet().stream().forEach((word) -> {
-               MyDataType ob = new MyDataType(word.getKey(),word.getValue());
+               MyDataType ob = new MyDataType(word.getKey(), word.getValue());
                list.add(ob);
         });
-           MyDataType ob = new MyDataType("Total  Unique Words ",total);
+           MyDataType ob = new MyDataType("Total  Unique Words ", total);
            list.add(ob);
           criticalPerson.set(table.getItems().get(total+remain));
 //          remain += total+1;
     }
     @FXML
-    public void CloseWindowOnAction(ActionEvent event) throws Exception{
+    public void CloseWindowOnAction(ActionEvent event){
         stage = (Stage)((Button)event.getSource()).getScene().getWindow();
         System.out.println("Closing the window");
         stage.close();
