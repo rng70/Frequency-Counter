@@ -28,11 +28,13 @@ import javafx.scene.control.TextArea;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.FileChooser;
 import javafx.stage.FileChooser.ExtensionFilter;
+import javafx.stage.Stage;
 
 public class FXMLDocumentController implements Initializable { 
     
     private Label label,label2;
-   @FXML private Button Button1,Button2;
+    Stage stage;
+   @FXML private Button Button1,Button2, closeWindow;
    @FXML ObservableList<MyDataType>list = FXCollections.observableArrayList();
    @FXML TableView<MyDataType> table = new TableView<>();
    @FXML  private TableColumn<MyDataType,String>wordss ;
@@ -113,6 +115,12 @@ public class FXMLDocumentController implements Initializable {
            list.add(ob);
           criticalPerson.set(table.getItems().get(total+remain));
 //          remain += total+1;
+    }
+    @FXML
+    public void CloseWindowOnAction(ActionEvent event) throws Exception{
+        stage = (Stage)((Button)event.getSource()).getScene().getWindow();
+        System.out.println("Closing the window");
+        stage.close();
     }
     
     @Override
