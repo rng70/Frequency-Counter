@@ -5,36 +5,36 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane id="AnchorPane" prefHeight="1000.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.FXMLDocumentController">
+<AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.FXMLDocumentController">
    <children>
-      <HBox prefHeight="1000.0" prefWidth="1000.0" spacing="20.0">
+      <HBox prefHeight="600.0" prefWidth="800.0" spacing="20.0">
          <padding>
             <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
          </padding>
          <children>
-            <AnchorPane prefHeight="1000.0" prefWidth="500.0">
+            <AnchorPane prefHeight="600.0" prefWidth="400.0">
                <children>
-                  <Label layoutX="14.0" layoutY="35.0" text="Choose Your FIile" textFill="#ee0202">
+                  <Label layoutX="14.0" layoutY="14.0" text="Choose Your FIile" textFill="#ee0202">
                      <font>
                         <Font name="Algerian" size="38.0" />
                      </font>
                   </Label>
-                  <Button fx:id="Button1" layoutX="14.0" layoutY="146.0" mnemonicParsing="false" onAction="#Button1Action" text="File Chooser" textFill="#4008eb">
+                  <Button fx:id="Button1" layoutX="301.0" layoutY="241.0" mnemonicParsing="false" onAction="#Button1Action" text="File Chooser" textFill="#4008eb">
                      <font>
                         <Font name="System Bold Italic" size="18.0" />
                      </font>
                   </Button>
-                  <Label layoutX="14.0" layoutY="200.0" text="Click Here to Choose Your File" textFill="#4e0cf0">
+                  <Label layoutX="18.0" layoutY="253.0" text="Click Here to Choose Your File" textFill="#4e0cf0">
                      <font>
                         <Font name="System Italic" size="19.0" />
                      </font>
                   </Label>
-                  <TextArea fx:id="filename" layoutX="14.0" layoutY="241.0" prefHeight="150.0" prefWidth="500.0">
+                  <TextArea fx:id="filename" layoutX="14.0" layoutY="290.0" prefHeight="150.0" prefWidth="500.0">
                      <font>
                         <Font name="Arial Rounded MT Bold" size="20.0" />
                      </font>
                   </TextArea>
-                  <Label layoutX="14.0" layoutY="413.0" text="Your Choosen File name and Location" textFill="#06f526">
+                  <Label layoutX="67.0" layoutY="466.0" text="Your Choosen File name and Location" textFill="#06f526">
                      <font>
                         <Font size="19.0" />
                      </font>
@@ -49,24 +49,33 @@
                         <Font name="System Italic" size="19.0" />
                      </font>
                   </Label>
-               </children></AnchorPane>
-            <AnchorPane prefHeight="1000.0" prefWidth="500.0">
-               <children>
-                  <Label layoutX="-30.0" layoutY="43.0" text="TABLEView of Words' Frequency" textFill="#ee0606">
+                  <Label layoutX="39.0" layoutY="86.0" prefHeight="28.0" prefWidth="70.0" text="File Tyep">
                      <font>
-                        <Font name="Algerian" size="30.0" />
+                        <Font name="System Bold" size="15.0" />
                      </font>
                   </Label>
-                  <TableView fx:id="table" layoutX="-15.0" layoutY="77.0" prefHeight="910.0" prefWidth="460.0">
-                    <columns>
-                      <TableColumn fx:id="wordss" prefWidth="230.0" text="Word" />
-                      <TableColumn fx:id="frequent" minWidth="0.0" prefWidth="224.0" text="Frequency" />
-                    </columns>
-                  </TableView>
-                  <Button fx:id="closeWindow" layoutX="417.0" layoutY="1.0" mnemonicParsing="false" onAction="#CloseWindowOnAction" prefHeight="20.0" prefWidth="28.0" />
-                  <Button layoutX="383.0" layoutY="1.0" mnemonicParsing="false" prefHeight="20.0" prefWidth="28.0" />
-                  <Button layoutX="348.0" layoutY="1.0" mnemonicParsing="false" prefHeight="20.0" prefWidth="28.0" />
-               </children>
+                  <RadioButton fx:id="txt" layoutX="66.0" layoutY="124.0" mnemonicParsing="false" text="Text File (.txt)" />
+                  <RadioButton fx:id="pdf" layoutX="67.0" layoutY="155.0" mnemonicParsing="false" text="PDF File (.pdf)" />
+                  <RadioButton fx:id="csv" layoutX="67.0" layoutY="186.0" mnemonicParsing="false" text="CSV File (.csv)" />
+                  <RadioButton fx:id="doc" layoutX="66.0" layoutY="214.0" mnemonicParsing="false" text="Word File (.docx)" />
+                  <RadioButton fx:id="epub" layoutX="182.0" layoutY="124.0" mnemonicParsing="false" text="Epub File (.epub)" />
+                  <RadioButton fx:id="md" layoutX="182.0" layoutY="155.0" mnemonicParsing="false" text="ReadMe File (.md)" />
+               </children></AnchorPane>
+            <AnchorPane prefHeight="600.0" prefWidth="400.0">
+               <Label layoutX="1.0" layoutY="42.0" text="TABLEView of Words' Frequency" textFill="#ee0606">
+                  <font>
+                     <Font name="Algerian" size="30.0" />
+                  </font>
+               </Label>
+               <TableView fx:id="table" layoutX="14.0" layoutY="79.0" prefHeight="600.0" prefWidth="400.0">
+                  <columns>
+                     <TableColumn fx:id="wordss" prefWidth="221.40002155303955" text="Word" />
+                     <TableColumn fx:id="frequent" minWidth="0.0" prefWidth="232.9999542236328" text="Frequency" />
+                  </columns>
+               </TableView>
+               <Button layoutX="400.0" layoutY="1.0" mnemonicParsing="false" onAction="#CloseWindowOnAction" prefHeight="20.0" prefWidth="28.0" />
+               <Button layoutX="290.0" layoutY="1.0" mnemonicParsing="false" prefHeight="20.0" prefWidth="28.0" />
+               <TextField layoutX="324.0" layoutY="1.0" prefHeight="18.0" prefWidth="70.0" />
             </AnchorPane>
          </children>
       </HBox>
