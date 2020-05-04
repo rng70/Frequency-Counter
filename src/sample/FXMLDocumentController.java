@@ -11,11 +11,13 @@ import java.util.HashMap;
 import java.io.FileReader;
 import java.nio.file.Path;
 
-import javafx.scene.control.*;
 import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.nio.file.Paths;
+
+import javafx.scene.control.*;
+
 import java.io.BufferedReader;
 import java.util.ResourceBundle;
 
@@ -30,6 +32,12 @@ import javafx.beans.property.ObjectProperty;
 import javafx.stage.FileChooser.ExtensionFilter;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.scene.control.cell.PropertyValueFactory;
+
+import java.io.IOException;
+
+import org.apache.pdfbox.pdmodel.PDDocument;
+import org.apache.pdfbox.text.PDFTextStripper;
+import org.apache.pdfbox.text.PDFTextStripperByArea;
 
 public class FXMLDocumentController implements Initializable {
 
@@ -96,7 +104,7 @@ public class FXMLDocumentController implements Initializable {
         else if (t.contains("md"))
             fc.getExtensionFilters().addAll(new ExtensionFilter("ReadMe file", "*.md"));
         else if (t.contains("epub"))
-            fc.getExtensionFilters().addAll(new ExtensionFilter("Epub file", ".epub"));
+            fc.getExtensionFilters().addAll(new ExtensionFilter("Epub file", "*.epub"));
 
 
         File file = fc.showOpenDialog(null);
@@ -113,29 +121,43 @@ public class FXMLDocumentController implements Initializable {
     public void Button2Action(ActionEvent event) throws IOException {
         Path pathing = Paths.get(path);
         System.out.println(path);
-        BufferedReader reader = new BufferedReader(new FileReader(pathing.toFile()));
+
         Map<String, Integer> wordfound = new HashMap<>();
-        String line = reader.readLine();
         total = 0;
 
-        while (line != null) {
-            if (!line.trim().equals("")) {
-                String[] words = line.split("[\\W]+");
-                for (String word : words) {
-                    if (word != null && !word.trim().equals("")) {
-                        String processed = word.toLowerCase();
-                        processed = processed.replace(",", " ");
+        if (t.contains("txt") || t.contains("csb") || t.contains("md")) {
+            System.out.println("In first if");
+            BufferedReader reader = new BufferedReader(new FileReader(pathing.toFile()));
+            String line = reader.readLine();
+            while (line != null) {
+                if (!line.trim().equals("")) {
+                    String[] words = line.split("[\\W]+");
+                    for (String word : words) {
+                        if (word != null && !word.trim().equals("")) {
+                            String processed = word.toLowerCase();
+                            processed = processed.replace(",", " ");
 
-                        if (wordfound.containsKey(processed)) {
-                            wordfound.put(processed, wordfound.get(processed) + 1);
-                        } else {
-                            wordfound.put(processed, 1);
-                            total++;
+                            if (wordfound.containsKey(processed)) {
+                                wordfound.put(processed, wordfound.get(processed) + 1);
+                            } else {
+                                wordfound.put(processed, 1);
+                                total++;
+                            }
                         }
                     }
                 }
+                line = reader.readLine();
             }
-            line = reader.readLine();
+        } else if (t.contains("pdf")) {
+            PDDocument pdf = PDDocument.load(new File(path));
+            if(pdf.getNumberOfPages()==104){
+                System.out.println("Success");
+            }
+            if(!pdf.isEncrypted()){
+                PDFTextStripper stripper = new PDFTextStripper();
+                String text = stripper.getText(pdf);
+                System.out.println(text);
+            }
         }
         list.clear();
         wordfound.forEach((key, value) -> {

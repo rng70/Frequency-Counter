@@ -8,5 +8,15 @@
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" name="lib" level="project" />
+    <orderEntry type="module-library">
+      <library>
+        <CLASSES>
+          <root url="file://A:/pdfbox_apace/jar" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+        <jarDirectory url="file://A:/pdfbox_apace/jar" recursive="false" />
+      </library>
+    </orderEntry>
   </component>
 </module>
