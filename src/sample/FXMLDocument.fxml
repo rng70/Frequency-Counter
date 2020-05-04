@@ -3,6 +3,7 @@
 <?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
 <?import javafx.scene.text.*?>
 
 <AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.FXMLDocumentController">
@@ -19,32 +20,32 @@
                         <Font name="Algerian" size="38.0" />
                      </font>
                   </Label>
-                  <Button fx:id="Button1" layoutX="301.0" layoutY="241.0" mnemonicParsing="false" onAction="#Button1Action" text="File Chooser" textFill="#4008eb">
+                  <Button fx:id="Button1" layoutX="292.0" layoutY="306.0" mnemonicParsing="false" onAction="#Button1Action" text="File Chooser" textFill="#4008eb">
                      <font>
                         <Font name="System Bold Italic" size="18.0" />
                      </font>
                   </Button>
-                  <Label layoutX="18.0" layoutY="253.0" text="Click Here to Choose Your File" textFill="#4e0cf0">
+                  <Label layoutX="16.0" layoutY="312.0" text="Click Here to Choose Your File" textFill="#4e0cf0">
                      <font>
                         <Font name="System Italic" size="19.0" />
                      </font>
                   </Label>
-                  <TextArea fx:id="filename" layoutX="14.0" layoutY="290.0" prefHeight="150.0" prefWidth="500.0">
+                  <TextArea fx:id="filename" layoutX="7.0" layoutY="355.0" prefHeight="150.0" prefWidth="500.0">
                      <font>
                         <Font name="Arial Rounded MT Bold" size="20.0" />
                      </font>
                   </TextArea>
-                  <Label layoutX="67.0" layoutY="466.0" text="Your Choosen File name and Location" textFill="#06f526">
+                  <Label layoutX="48.0" layoutY="526.0" text="Your Choosen File name and Location" textFill="#06f526">
                      <font>
                         <Font size="19.0" />
                      </font>
                   </Label>
-                  <Button fx:id="Button2" layoutX="301.0" layoutY="494.0" mnemonicParsing="false" onAction="#Button2Action" text="Frequency Generator" textFill="#f20707">
+                  <Button fx:id="Button2" layoutX="301.0" layoutY="566.0" mnemonicParsing="false" onAction="#Button2Action" text="Frequency Generator" textFill="#f20707">
                      <font>
                         <Font name="System Bold Italic" size="18.0" />
                      </font>
                   </Button>
-                  <Label layoutX="264.0" layoutY="553.0" text="Click Here to View Frequency" textFill="#2009ee">
+                  <Label layoutX="264.0" layoutY="614.0" text="Click Here to View Frequency" textFill="#2009ee">
                      <font>
                         <Font name="System Italic" size="19.0" />
                      </font>
@@ -57,25 +58,35 @@
                   <RadioButton fx:id="txt" layoutX="66.0" layoutY="124.0" mnemonicParsing="false" text="Text File (.txt)" />
                   <RadioButton fx:id="pdf" layoutX="67.0" layoutY="155.0" mnemonicParsing="false" text="PDF File (.pdf)" />
                   <RadioButton fx:id="csv" layoutX="67.0" layoutY="186.0" mnemonicParsing="false" text="CSV File (.csv)" />
-                  <RadioButton fx:id="doc" layoutX="66.0" layoutY="214.0" mnemonicParsing="false" text="Word File (.docx)" />
+                  <RadioButton fx:id="doc" layoutX="181.0" layoutY="186.0" mnemonicParsing="false" text="Word File (.docx)" />
                   <RadioButton fx:id="epub" layoutX="182.0" layoutY="124.0" mnemonicParsing="false" text="Epub File (.epub)" />
-                  <RadioButton fx:id="md" layoutX="182.0" layoutY="155.0" mnemonicParsing="false" text="ReadMe File (.md)" />
+                  <RadioButton fx:id="md" layoutX="182.0" layoutY="155.0" mnemonicParsing="false" text="MarkDown File (.md)" />
+                  <Label layoutX="39.0" layoutY="219.0" text="Frequency Type">
+                     <font>
+                        <Font name="System Bold" size="15.0" />
+                     </font>
+                  </Label>
+                  <RadioButton fx:id="unique_f" layoutX="66.0" layoutY="256.0" mnemonicParsing="false" text="Unique Words (exactly once)" />
+                  <RadioButton fx:id="all_f" layoutX="265.0" layoutY="256.0" mnemonicParsing="false" text="All words" />
                </children></AnchorPane>
             <AnchorPane prefHeight="600.0" prefWidth="400.0">
-               <Label layoutX="1.0" layoutY="42.0" text="TABLEView of Words' Frequency" textFill="#ee0606">
+               <Label layoutX="14.0" layoutY="27.0" text="Frequency Table:" textFill="#ee0606">
                   <font>
                      <Font name="Algerian" size="30.0" />
                   </font>
                </Label>
                <TableView fx:id="table" layoutX="14.0" layoutY="79.0" prefHeight="600.0" prefWidth="400.0">
                   <columns>
-                     <TableColumn fx:id="wordss" prefWidth="221.40002155303955" text="Word" />
-                     <TableColumn fx:id="frequent" minWidth="0.0" prefWidth="232.9999542236328" text="Frequency" />
+                     <TableColumn fx:id="wordss" prefWidth="203.5999698638916" text="Word" />
+                     <TableColumn fx:id="frequent" minWidth="0.0" prefWidth="252.4000244140625" text="Frequency" />
                   </columns>
+                  <columnResizePolicy>
+                     <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                  </columnResizePolicy>
                </TableView>
-               <Button layoutX="400.0" layoutY="1.0" mnemonicParsing="false" onAction="#CloseWindowOnAction" prefHeight="20.0" prefWidth="28.0" />
-               <Button layoutX="290.0" layoutY="1.0" mnemonicParsing="false" prefHeight="20.0" prefWidth="28.0" />
-               <TextField layoutX="324.0" layoutY="1.0" prefHeight="18.0" prefWidth="70.0" />
+               <Rectangle arcHeight="50.0" arcWidth="30.0" fill="WHITE" height="28.0" layoutX="320.0" stroke="BLACK" strokeType="INSIDE" width="70.0" />
+               <Circle fill="DODGERBLUE" layoutX="334.0" layoutY="14.0" radius="14.0" stroke="BLACK" strokeType="INSIDE" />
+               <Label layoutX="320.0" prefHeight="28.0" prefWidth="71.0" text="Label" />
             </AnchorPane>
          </children>
       </HBox>
