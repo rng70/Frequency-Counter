@@ -86,17 +86,21 @@ public class FXMLDocumentController implements Initializable {
         try {
             if (bg) {
                 acPane.setStyle("-fx-background-color:#273746");
-                cs.setBackground(new Background(new BackgroundFill(Color.rgb(216,191,216), new CornerRadii(10), Insets.EMPTY)));
-                ft.setBackground(new Background(new BackgroundFill(Color.rgb(216,191,216), new CornerRadii(10), Insets.EMPTY)));
-                ft1.setBackground(new Background(new BackgroundFill(Color.rgb(216,191,216), new CornerRadii(10), Insets.EMPTY)));
-                fn.setBackground(new Background(new BackgroundFill(Color.rgb(216,191,216), new CornerRadii(10), Insets.EMPTY)));
-                fq.setBackground(new Background(new BackgroundFill(Color.rgb(216,191,216), new CornerRadii(10), Insets.EMPTY)));
-                txt.setBackground(new Background(new BackgroundFill(Color.rgb(216,191,216), new CornerRadii(10), Insets.EMPTY)));
-                csv.setBackground(new Background(new BackgroundFill(Color.rgb(216,191,216), new CornerRadii(10), Insets.EMPTY)));
-                md.setBackground(new Background(new BackgroundFill(Color.rgb(216,191,216), new CornerRadii(10), Insets.EMPTY)));
-                unique_f.setBackground(new Background(new BackgroundFill(Color.rgb(216,191,216), new CornerRadii(10), Insets.EMPTY)));
-                all_f.setBackground(new Background(new BackgroundFill(Color.rgb(216,191,216), new CornerRadii(10), Insets.EMPTY)));
-                doc.setBackground(new Background(new BackgroundFill(Color.rgb(216,191,216), new CornerRadii(10), Insets.EMPTY)));
+                cs.setBackground(new Background(new BackgroundFill(Color.rgb(216, 191, 216), new CornerRadii(10), Insets.EMPTY)));
+                ft.setBackground(new Background(new BackgroundFill(Color.rgb(216, 191, 216), new CornerRadii(10), Insets.EMPTY)));
+                ft1.setBackground(new Background(new BackgroundFill(Color.rgb(216, 191, 216), new CornerRadii(10), Insets.EMPTY)));
+                fn.setBackground(new Background(new BackgroundFill(Color.rgb(216, 191, 216), new CornerRadii(10), Insets.EMPTY)));
+                fq.setBackground(new Background(new BackgroundFill(Color.rgb(216, 191, 216), new CornerRadii(10), Insets.EMPTY)));
+                txt.setBackground(new Background(new BackgroundFill(Color.rgb(216, 191, 216), new CornerRadii(10), Insets.EMPTY)));
+                csv.setBackground(new Background(new BackgroundFill(Color.rgb(216, 191, 216), new CornerRadii(10), Insets.EMPTY)));
+                md.setBackground(new Background(new BackgroundFill(Color.rgb(216, 191, 216), new CornerRadii(10), Insets.EMPTY)));
+                unique_f.setBackground(new Background(new BackgroundFill(Color.rgb(216, 191, 216), new CornerRadii(10), Insets.EMPTY)));
+                all_f.setBackground(new Background(new BackgroundFill(Color.rgb(216, 191, 216), new CornerRadii(10), Insets.EMPTY)));
+                doc.setBackground(new Background(new BackgroundFill(Color.rgb(216, 191, 216), new CornerRadii(10), Insets.EMPTY)));
+//                table.setBackground(new Background(new BackgroundFill(Color.web("#808080"), CornerRadii.EMPTY, Insets.EMPTY)));
+                filename.setStyle("-fx-control-inner-background:#808080");
+                table.setStyle("-fx-control-inner-background:#808080");
+
             } else {
                 acPane.setStyle("-fx-background-color:#808080");
                 cs.setBackground(new Background(new BackgroundFill(Color.rgb(249, 231, 159), new CornerRadii(10), Insets.EMPTY)));
@@ -110,6 +114,9 @@ public class FXMLDocumentController implements Initializable {
                 unique_f.setBackground(new Background(new BackgroundFill(Color.rgb(249, 231, 159), new CornerRadii(10), Insets.EMPTY)));
                 all_f.setBackground(new Background(new BackgroundFill(Color.rgb(249, 231, 159), new CornerRadii(10), Insets.EMPTY)));
                 doc.setBackground(new Background(new BackgroundFill(Color.rgb(249, 231, 159), new CornerRadii(10), Insets.EMPTY)));
+//                table.setBackground(new Background(new BackgroundFill(Color.BLACK, CornerRadii.EMPTY, Insets.EMPTY)));
+                filename.setStyle("-fx-control-inner-background:BLACK");
+                table.setStyle("-fx-control-inner-background:BLACK");
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -164,7 +171,6 @@ public class FXMLDocumentController implements Initializable {
             fc.getExtensionFilters().addAll(new ExtensionFilter("ReadMe file", "*.md"));
         else if (t.contains("epub"))
             fc.getExtensionFilters().addAll(new ExtensionFilter("Epub file", "*.epub"));
-
 
         File file = fc.showOpenDialog(null);
 
@@ -299,7 +305,7 @@ public class FXMLDocumentController implements Initializable {
             TableRow<MyDataType> row = new TableRow<>();
             BooleanBinding critical = row.itemProperty().isEqualTo(criticalPerson).and(row.itemProperty().isNotNull());
             row.styleProperty().bind(Bindings.when(critical)
-                    .then("-fx-background-color: yellow ;")
+                    .then("-fx-background-color: BLUE ;")
                     .otherwise(""));
             return row;
         });

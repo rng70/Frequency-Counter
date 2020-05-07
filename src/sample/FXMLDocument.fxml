@@ -58,7 +58,7 @@
                   <RadioButton fx:id="all_f" layoutX="265.0" layoutY="256.0" mnemonicParsing="false" text="All words" />
                </children></AnchorPane>
             <AnchorPane prefHeight="600.0" prefWidth="400.0">
-               <Label fx:id="fq" layoutX="14.0" layoutY="27.0" text="Frequency Table:">
+               <Label fx:id="fq" layoutX="14.0" layoutY="27.0" text="Frequency Table">
                   <font>
                      <Font name="Algerian" size="30.0" />
                   </font>
