@@ -6,7 +6,6 @@
 
 <h1>Here is a quick video how it works     
 </h1>
-
-<video src="attachments/Word-Frequency-Counter.mp4"></video>
+![Word-Frequency-Counter](attachments/Word-Frequency-Counter.gif)
 
 This is simple javafx application and it was done as an assignment.
