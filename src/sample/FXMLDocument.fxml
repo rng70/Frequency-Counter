@@ -20,22 +20,22 @@
                         <Font size="30.0" />
                      </font>
                   </Label>
-                  <Button layoutX="27.0" layoutY="484.0" mnemonicParsing="false" onAction="#Button1Action" text="Choose File" textFill="#4008eb">
+                  <Button layoutX="159.0" layoutY="404.0" mnemonicParsing="false" onAction="#Button1Action" text="Choose File" textFill="#4008eb">
                      <font>
                         <Font name="System Bold" size="20.0" />
                      </font>
                   </Button>
-                  <TextArea fx:id="filename" layoutX="-2.0" layoutY="351.0" prefHeight="108.0" prefWidth="500.0">
+                  <TextArea fx:id="filename" layoutX="5.0" layoutY="505.0" prefHeight="108.0" prefWidth="500.0">
                      <font>
                         <Font name="Arial Rounded MT Bold" size="16.0" />
                      </font>
                   </TextArea>
-                  <Label fx:id="fn" layoutX="39.0" layoutY="312.0" text="File name and Location">
+                  <Label fx:id="fn" layoutX="39.0" layoutY="464.0" text="File name and Location">
                      <font>
                         <Font name="System Bold" size="18.0" />
                      </font>
                   </Label>
-                  <Button layoutX="227.0" layoutY="484.0" mnemonicParsing="false" onAction="#Button2Action" text="Generate Frequency Table" textFill="#f20707">
+                  <Button layoutX="90.0" layoutY="621.0" mnemonicParsing="false" onAction="#Button2Action" text="Generate Frequency Table" textFill="#f20707">
                      <font>
                         <Font name="System Bold" size="20.0" />
                      </font>
@@ -47,8 +47,7 @@
                   </Label>
                   <RadioButton fx:id="txt" layoutX="67.0" layoutY="125.0" mnemonicParsing="false" text="Text File (.txt)" />
                   <RadioButton fx:id="csv" layoutX="67.0" layoutY="155.0" mnemonicParsing="false" text="CSV File (.csv)" />
-                  <RadioButton fx:id="doc" layoutX="181.0" layoutY="125.0" mnemonicParsing="false" text="Word File (.docx)" />
-                  <RadioButton fx:id="md" layoutX="181.0" layoutY="155.0" mnemonicParsing="false" text="MarkDown File (.md)" />
+                  <RadioButton fx:id="md" layoutX="67.0" layoutY="185.0" mnemonicParsing="false" text="MarkDown File (.md)" />
                   <Label fx:id="ft1" layoutX="39.0" layoutY="219.0" text="Frequency Type">
                      <font>
                         <Font name="System Bold" size="15.0" />
@@ -56,6 +55,22 @@
                   </Label>
                   <RadioButton fx:id="unique_f" layoutX="66.0" layoutY="256.0" mnemonicParsing="false" text="Unique Words (exactly once)" />
                   <RadioButton fx:id="all_f" layoutX="265.0" layoutY="256.0" mnemonicParsing="false" text="All words" />
+                  <Label fx:id="ef" layoutX="39.0" layoutY="303.0" text="Enter File Path (ex: C:\exm.txt)">
+                     <font>
+                        <Font name="System Bold" size="15.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="tf" layoutX="40.0" layoutY="340.0" prefHeight="26.0" prefWidth="400.0" />
+                  <Label fx:id="or" layoutX="212.0" layoutY="375.0" text="  or">
+                     <font>
+                        <Font name="System Bold" size="15.0" />
+                     </font>
+                  </Label>
+                  <Button layoutX="452.0" layoutY="338.0" mnemonicParsing="false" onAction="#goButtonOnAction" text="Go">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                  </Button>
                </children></AnchorPane>
             <AnchorPane prefHeight="600.0" prefWidth="400.0">
                <Label fx:id="fq" layoutX="14.0" layoutY="27.0" text="Frequency Table">
