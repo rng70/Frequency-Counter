@@ -6,7 +6,7 @@
 <?import javafx.scene.shape.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.FXMLDocumentController">
+<AnchorPane id="AnchorPane" fx:id="acPane" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.FXMLDocumentController">
    <children>
       <HBox prefHeight="600.0" prefWidth="800.0" spacing="20.0">
          <padding>
@@ -15,53 +15,41 @@
          <children>
             <AnchorPane prefHeight="600.0" prefWidth="400.0">
                <children>
-                  <Label layoutX="14.0" layoutY="14.0" text="Choose Your FIile" textFill="#ee0202">
+                  <Label fx:id="cs" layoutX="14.0" layoutY="34.0" text="Choose File Type">
                      <font>
-                        <Font name="Algerian" size="38.0" />
+                        <Font size="30.0" />
                      </font>
                   </Label>
-                  <Button fx:id="Button1" layoutX="292.0" layoutY="306.0" mnemonicParsing="false" onAction="#Button1Action" text="File Chooser" textFill="#4008eb">
+                  <Button layoutX="27.0" layoutY="484.0" mnemonicParsing="false" onAction="#Button1Action" text="Choose File" textFill="#4008eb">
                      <font>
-                        <Font name="System Bold Italic" size="18.0" />
+                        <Font name="System Bold" size="20.0" />
                      </font>
                   </Button>
-                  <Label layoutX="16.0" layoutY="312.0" text="Click Here to Choose Your File" textFill="#4e0cf0">
+                  <TextArea fx:id="filename" layoutX="-2.0" layoutY="351.0" prefHeight="108.0" prefWidth="500.0">
                      <font>
-                        <Font name="System Italic" size="19.0" />
-                     </font>
-                  </Label>
-                  <TextArea fx:id="filename" layoutX="7.0" layoutY="355.0" prefHeight="150.0" prefWidth="500.0">
-                     <font>
-                        <Font name="Arial Rounded MT Bold" size="20.0" />
+                        <Font name="Arial Rounded MT Bold" size="16.0" />
                      </font>
                   </TextArea>
-                  <Label layoutX="48.0" layoutY="526.0" text="Your Choosen File name and Location" textFill="#06f526">
+                  <Label fx:id="fn" layoutX="39.0" layoutY="312.0" text="File name and Location">
                      <font>
-                        <Font size="19.0" />
+                        <Font name="System Bold" size="18.0" />
                      </font>
                   </Label>
-                  <Button fx:id="Button2" layoutX="301.0" layoutY="566.0" mnemonicParsing="false" onAction="#Button2Action" text="Frequency Generator" textFill="#f20707">
+                  <Button layoutX="227.0" layoutY="484.0" mnemonicParsing="false" onAction="#Button2Action" text="Generate Frequency Table" textFill="#f20707">
                      <font>
-                        <Font name="System Bold Italic" size="18.0" />
+                        <Font name="System Bold" size="20.0" />
                      </font>
                   </Button>
-                  <Label layoutX="264.0" layoutY="614.0" text="Click Here to View Frequency" textFill="#2009ee">
-                     <font>
-                        <Font name="System Italic" size="19.0" />
-                     </font>
-                  </Label>
-                  <Label layoutX="39.0" layoutY="86.0" prefHeight="28.0" prefWidth="70.0" text="File Tyep">
+                  <Label fx:id="ft" layoutX="39.0" layoutY="86.0" prefHeight="28.0" prefWidth="70.0" text="File Tyep">
                      <font>
                         <Font name="System Bold" size="15.0" />
                      </font>
                   </Label>
-                  <RadioButton fx:id="txt" layoutX="66.0" layoutY="124.0" mnemonicParsing="false" text="Text File (.txt)" />
-                  <RadioButton fx:id="pdf" layoutX="67.0" layoutY="155.0" mnemonicParsing="false" text="PDF File (.pdf)" />
-                  <RadioButton fx:id="csv" layoutX="67.0" layoutY="186.0" mnemonicParsing="false" text="CSV File (.csv)" />
-                  <RadioButton fx:id="doc" layoutX="181.0" layoutY="186.0" mnemonicParsing="false" text="Word File (.docx)" />
-                  <RadioButton fx:id="epub" layoutX="182.0" layoutY="124.0" mnemonicParsing="false" text="Epub File (.epub)" />
-                  <RadioButton fx:id="md" layoutX="182.0" layoutY="155.0" mnemonicParsing="false" text="MarkDown File (.md)" />
-                  <Label layoutX="39.0" layoutY="219.0" text="Frequency Type">
+                  <RadioButton fx:id="txt" layoutX="67.0" layoutY="125.0" mnemonicParsing="false" text="Text File (.txt)" />
+                  <RadioButton fx:id="csv" layoutX="67.0" layoutY="155.0" mnemonicParsing="false" text="CSV File (.csv)" />
+                  <RadioButton fx:id="doc" layoutX="181.0" layoutY="125.0" mnemonicParsing="false" text="Word File (.docx)" />
+                  <RadioButton fx:id="md" layoutX="181.0" layoutY="155.0" mnemonicParsing="false" text="MarkDown File (.md)" />
+                  <Label fx:id="ft1" layoutX="39.0" layoutY="219.0" text="Frequency Type">
                      <font>
                         <Font name="System Bold" size="15.0" />
                      </font>
@@ -70,7 +58,7 @@
                   <RadioButton fx:id="all_f" layoutX="265.0" layoutY="256.0" mnemonicParsing="false" text="All words" />
                </children></AnchorPane>
             <AnchorPane prefHeight="600.0" prefWidth="400.0">
-               <Label layoutX="14.0" layoutY="27.0" text="Frequency Table:" textFill="#ee0606">
+               <Label fx:id="fq" layoutX="14.0" layoutY="27.0" text="Frequency Table:">
                   <font>
                      <Font name="Algerian" size="30.0" />
                   </font>
@@ -84,9 +72,12 @@
                      <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
                   </columnResizePolicy>
                </TableView>
-               <Rectangle arcHeight="50.0" arcWidth="30.0" fill="WHITE" height="28.0" layoutX="320.0" stroke="BLACK" strokeType="INSIDE" width="70.0" />
-               <Circle fill="DODGERBLUE" layoutX="334.0" layoutY="14.0" radius="14.0" stroke="BLACK" strokeType="INSIDE" />
-               <Label layoutX="320.0" prefHeight="28.0" prefWidth="71.0" text="Label" />
+               <Rectangle fx:id="rect" arcHeight="50.0" arcWidth="30.0" height="28.0" layoutX="320.0" stroke="BLACK" strokeType="INSIDE" width="70.0" />
+               <Label fx:id="tgLabel" layoutX="320.0" prefHeight="28.0" prefWidth="70.0" textFill="WHITE">
+                  <font>
+                     <Font name="System Bold" size="12.0" />
+                  </font></Label>
+               <Circle fx:id="circ" fill="DODGERBLUE" layoutX="334.0" layoutY="14.0" radius="14.0" stroke="BLACK" strokeType="INSIDE" />
             </AnchorPane>
          </children>
       </HBox>
